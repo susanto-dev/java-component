@@ -35,24 +35,24 @@ jobs:
         uses: gittools/actions/gitversion/setup@v3.1.11
         with:
           versionSpec: '6.0.x'
-       - name: Determine Version
-         id: gitversion
-         uses: gittools/actions/gitversion/execute@v3.1.11
-         with:
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v3.1.11
+        with:
            useConfigFile: true
            configFilePath: GitVersion/GitVersion.yml
-       - name: Update version
-         run: mvn versions:set -DnewVersion=${{ steps.gitversion.outputs.gitversion }}
+      - name: Update version
+        run: mvn versions:set -DnewVersion=${{ steps.gitversion.outputs.gitversion }}
 
-       - name: Build Complete with Maven
-         shell: bash
-         run: |
+      - name: Build Complete with Maven
+        shell: bash
+        run: |
            chmod +x ./mvnw
            ./mvnw --batch-mode clean package
 
-       - name: Publish to github packages
-         shell: bash
-         run: |
+      - name: Publish to github packages
+        shell: bash
+        run: |
            chmod +x ./mvnw
            ./mvnw --batch-mode deploy
 
