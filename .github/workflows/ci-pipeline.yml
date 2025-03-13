@@ -43,7 +43,7 @@ jobs:
            useConfigFile: true
            configFilePath: GitVersion/GitVersion.yml
       - name: Update version
-        run: mvn versions:set -DnewVersion=${{ steps.gitversion.outputs.gitversion }}
+        run: mvn versions:set-property -Dproperty=revision -DnewVersion=${{ steps.gitversion.outputs.gitversion }} -DgenerateBackupPoms=false
 
       - name: Build Complete with Maven
         shell: bash
