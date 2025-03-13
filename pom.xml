@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>actuator-service-complete</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${project.version}</version>
 	<name>actuator-service-complete</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -33,6 +33,13 @@
 		</dependency>
 	</dependencies>
 
+        <distributionManagement>
+          <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/susanto-dev/java-component</url>
+          </repository>
+        </distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
