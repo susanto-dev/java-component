@@ -41,18 +41,18 @@ jobs:
          with:
            useConfigFile: true
            configFilePath: GitVersion/GitVersion.yml
-      - name: Update version
-        run: mvn versions:set -DnewVersion=${{ steps.gitversion.outputs.gitversion }}
+       - name: Update version
+         run: mvn versions:set -DnewVersion=${{ steps.gitversion.outputs.gitversion }}
 
-      - name: Build Complete with Maven
-        shell: bash
-        run: |
-          chmod +x ./mvnw
-          ./mvnw --batch-mode clean package
+       - name: Build Complete with Maven
+         shell: bash
+         run: |
+           chmod +x ./mvnw
+           ./mvnw --batch-mode clean package
 
-      - name: Publish to github packages
-        shell: bash
-        run: |
-          chmod +x ./mvnw
-          ./mvnw --batch-mode deploy
+       - name: Publish to github packages
+         shell: bash
+         run: |
+           chmod +x ./mvnw
+           ./mvnw --batch-mode deploy
 
