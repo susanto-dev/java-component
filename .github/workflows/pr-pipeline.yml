@@ -8,6 +8,6 @@ on:
 jobs:
   pipeline:
    uses: susanto-dev/devops-infra/.github/workflows/pr-pipeline.yml@develop
-   secrets: inherit
+   secrets: inherit 
    with:
      component: 'java'
