@@ -1,39 +1,13 @@
 name: PR pipeline
 
 on:
-#  workflow_call:
-#    inputs:
-#      component:
-#        required: true
-#        default: ""
-#  push:
-#    branches:
-#      - main
   pull_request:
-#    branches:
-#      - main
+    branches:
+      - main
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
-      - name: Setup Dotnet
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '6.0.4xx'
-      - name: Build Complete with Maven
-        shell: bash
-        run: |
-          chmod +x ./mvnw
-          ./mvnw --batch-mode clean package
+  pipeline:
+   used: susanto-dev/devops-infra/.github/workflows/pr-pipeline.yml
+   secrets: inherit
+   with:
+     component: 'java'

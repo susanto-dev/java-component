@@ -1,5 +1,14 @@
 mode: ContinuousDeployment
-branches: {}
+branches:
+  main:
+    regex: ^main$
+    tag: ''
+  develop:
+    regex: ^develop$
+    tag: 'beta'
+  feature:
+    regex: ^feature[/-]
+    tag: 'alpha'
 ignore:
   sha: []
 merge-message-formats: {}
