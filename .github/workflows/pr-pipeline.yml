@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read 
 jobs:
   pipeline:
    uses: susanto-dev/devops-infra/.github/workflows/pr-pipeline.yml@develop
