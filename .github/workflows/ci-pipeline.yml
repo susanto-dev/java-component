@@ -1,0 +1,14 @@
+name: CI pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+jobs:
+  pipeline:
+   uses: susanto-dev/devops-infra/.github/workflows/pr-pipeline.yml@develop
+   secrets: inherit 
+   with:
+     component: 'java'
