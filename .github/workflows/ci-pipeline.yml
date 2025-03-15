@@ -9,6 +9,6 @@ on:
 jobs:
   pipeline:
    uses: susanto-dev/devops-infra/.github/workflows/ci-pipeline.yml@develop
-   secrets: inherit 
+   secrets: inherit
    with:
      component: 'java'
