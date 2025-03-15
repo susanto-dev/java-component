@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - README.md
+
 jobs:
   pipeline:
    uses: susanto-dev/devops-infra/.github/workflows/ci-pipeline.yml@develop
