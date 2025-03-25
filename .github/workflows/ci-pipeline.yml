@@ -19,8 +19,8 @@ jobs:
    uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
    secrets: inherit
    with:
-     environment: 'dev'
      repository: 'java-component'
      version: ${{ needs.build.outputs.build_version }}
+     environment: 'dev'
      component: 'java'
 
