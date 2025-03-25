@@ -8,8 +8,20 @@ on:
       - README.md
 
 jobs:
-  pipeline:
+  build:
    uses: susanto-dev/devops-infra/.github/workflows/ci-pipeline.yml@develop
    secrets: inherit
    with:
      component: 'java'
+
+  deploy-to-dev:
+   needs: build
+   uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
+   secrets: inherit
+   environment: dev
+   with:
+     repository: 'java-component'
+     version: ${{ needs.build.outputs.build_version }}
+     environment: 'dev'
+     component: 'java'
+
