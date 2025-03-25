@@ -16,20 +16,21 @@ jobs:
 
   wait-for-approval-dev:
    runs-on: ubuntu-latest
+   needs: [build]
    steps:
      - name: Wait for approval (Dev)
        uses: trstringer/manual-approval@v1
        with:
          approvers: Leads
          minimum-approvals: 1
-
   deploy-to-dev:
-   needs: [build,wait-for-approval-dev]
-   uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
-   secrets: inherit
-   environment: dev
-   with:
-     repository: 'java-component'
-     version: ${{ needs.build.outputs.build_version }}
-     component: 'java'
-
+    needs: [build, wait-for-approval-dev]
+    runs-on: ubuntu-latest  
+    steps:
+      - name: Deploy to Dev
+        uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
+        secrets: inherit
+        with:
+          repository: 'java-component'
+          version: ${{ needs.build.outputs.build_version }}
+          component: 'java'
