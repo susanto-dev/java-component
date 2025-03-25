@@ -14,7 +14,6 @@ jobs:
    with:
      component: 'java'
 
-
   deploy-to-dev:
    needs: build
    uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
@@ -23,6 +22,6 @@ jobs:
    with:
      repository: 'java-component'
      version: ${{ needs.build.outputs.build_version }}
-     environment: 'dev'
+#     environment: 'dev'
      component: 'java'
 
