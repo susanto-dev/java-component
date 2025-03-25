@@ -15,13 +15,13 @@ jobs:
      component: 'java'
 
   wait-for-approval-dev:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait for approval (Dev)
-        uses: trstringer/manual-approval@v1
-        with:
-          approvers: Leads
-          minimum-approvals: 1
+   runs-on: ubuntu-latest
+   steps:
+     - name: Wait for approval (Dev)
+       uses: trstringer/manual-approval@v1
+       with:
+         approvers: Leads
+         minimum-approvals: 1
 
   deploy-to-dev:
    needs: [build,wait-for-approval-dev]
