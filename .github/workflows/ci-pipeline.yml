@@ -20,7 +20,7 @@ jobs:
    secrets: inherit
    with:
      repository: 'java-component'
-     version: ${{ needs.build.outputs.build_version }}
+     version: '${{ needs.build.outputs.build_version }}'
      environment: 'dev'
      component: 'java'
 
