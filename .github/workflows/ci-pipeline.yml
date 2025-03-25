@@ -17,7 +17,6 @@ jobs:
   deploy-to-dev:
    needs: [build]
    uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
-   secrets: inherit
    with:
      repository: 'java-component'
      version: '${{ needs.build.outputs.build_version }}'
