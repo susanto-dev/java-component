@@ -22,6 +22,6 @@ jobs:
    with:
      repository: 'java-component'
      version: '0.1'
-     environment: 'dev'
+     environment: ${{ needs.build.outputs.build_version }}
      component: 'java'
 
