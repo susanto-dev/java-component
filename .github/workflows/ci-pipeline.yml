@@ -17,7 +17,6 @@ jobs:
   deploy-to-dev:
    needs: [build]
    uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
-   environment: dev
    secrets: inherit
    with:
      repository: 'java-component'
