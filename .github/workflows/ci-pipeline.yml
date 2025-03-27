@@ -25,7 +25,7 @@ jobs:
      component: 'java'
 
   deploy-to-uat:
-   needs: [build,dev]
+   needs: [build,deploy-to-dev]
    uses: susanto-dev/devops-infra/.github/workflows/cd.yml@develop
    secrets: inherit
    with:
