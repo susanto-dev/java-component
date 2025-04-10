@@ -1,5 +1,4 @@
 name: PR pipeline
-
 on:
   pull_request:
     branches:
